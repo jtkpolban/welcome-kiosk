@@ -46,74 +46,65 @@
             else{document.body.style.backgroundImage = "url('4.jpg')";}
         }
 
-	</script>
-	<style>
+    </script>
+<style>
 
-	/*	* {
-    box-sizing: border-box;
-}
-*/
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    
-    background-size: cover;
-}
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        
+        background-size: auto;
+        background-repeat: no-repeat;
+        overflow-y: hidden;
+        max-height: 100%;
+    }
 
-/* Style the header */
-header {
-    background-color: #666;
-    padding: 30px;
-    text-align: center;
-    font-size: 35px;
-    color: white;
-}
+    header {
+        background-color: #666;
+        padding: 30px;
+        text-align: center;
+        font-size: 35px;
+        color: white;
+    }
 
-/* Create two columns/boxes that floats next to each other */
-side {
-    float: left;
-    width: 30%;
-    padding: 25px;
-    padding-top:600px;
-}
-.container {
+    side {
+        float: left;
+        width: 30%;
+        padding: 25px;
+        padding-top:480px;
+    }
+    .container {
 
-  background-size: cover;
-}
-/* Style the list inside the menu */
-side bar {
-    list-style-type: none;
-    padding: 0;
-    font-size:150px;
-    
-}
+      background-size: cover;
+    }
 
-span{
-	padding: 0px;
-    padding-top:0px;
-    font-size:80px;
-    color:white;
-}
+    side bar {
+        list-style-type: none;
+        padding: 0;
+        font-size:150px;
+        
+    }
 
-p{
-    padding: 25px;
-    padding-top:450px;
-    font-size:80px;
-    color:white;
-}
+    span{
+    	padding: 0px;
+        padding-top:0px;
+        font-size:60px;
+        color:white;
+    }
 
-message {
-    padding: 25px;
-    padding-top:450px;
-    font-size:80px;
-    color:white;
-}
+    p{
+        padding-top:29%;
+        font-size:80px;
+        color:white;
+        text-align: left;
+        object-position: bottom;
+        word-spacing: 0px;
+    }
 
-/* Clear floats after the columns */
-section:after {
-    content: "";
-    display: table;
-    clear: both;
-}
+    section:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 
 
 </style>
@@ -129,9 +120,7 @@ section:after {
         </side>
         <p>
         Selamat Datang
-        <br>
         <span id="auto"></span>
-        <br>
         di JTK
         </p>
     </section>

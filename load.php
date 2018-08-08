@@ -15,6 +15,10 @@
     mysqli_free_result($result);
 
     // mysqli_close($result);
-    echo "$data[tulisan]";
+    if ($data['tulisan']==""){
+        echo "<br>";
+    } else {
+        echo "<br>$data[tulisan]<br>";
+    }
 ?>
 
