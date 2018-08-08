@@ -1,22 +1,3 @@
-<?php
-    include("connection.php");
-    
-    $query = "SELECT * FROM jadwal where mulai <= now() and selesai >= now()";
-
-    $result = mysqli_query($link, $query);
-
-    if(!$result){
-        die ("Query Error: ".mysqli_errno($link).
-                " - ".mysqli_error($link));
-    }
-
-    $data = mysqli_fetch_assoc($result);
-
-    mysqli_free_result($result);
-
-    // mysqli_close($result);
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,16 +5,28 @@
     <link rel="icon" href="logo jtk.png" type="image/png" >
 	<title>SELAMAT DATANG</title>
 
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
+        $(document).ready( function(){
+            $('#auto').load('load.php');
+            refresh();
+        });
 
-	    function tampilkanwaktu(){
+        function refresh(){
+            setTimeout( function () {
+                $('#auto').load('load.php');
+                refresh();
+            }, 200);
+        }
+        
+        function tampilkanwaktu(){
             var waktu = new Date();
             var sh = waktu.getHours(); 
-	        var sm = waktu.getMinutes();
-	        var ss = waktu.getSeconds();
+            var sm = waktu.getMinutes();
+            var ss = waktu.getSeconds();
             sm = checkTime(sm);
             ss = checkTime(ss);
-	        document.getElementById("clock").innerHTML = sh + ":" + sm ;
+            document.getElementById("clock").innerHTML = sh + ":" + sm ;
         }
 
         function checkTime(i) {
@@ -44,8 +37,8 @@
         function gantigambar(){
             var waktu = new Date();
             var sh = waktu.getHours(); 
-	        var sm = waktu.getMinutes();
-	        var ss = waktu.getSeconds();
+            var sm = waktu.getMinutes();
+            var ss = waktu.getSeconds();
             
             if(sh>=6&& sh<10){document.body.style.backgroundImage = "url('1.jpg')";}
             else if(sh>=10&& sh<15){document.body.style.backgroundImage = "url('2.jpg')";}
@@ -53,13 +46,6 @@
             else{document.body.style.backgroundImage = "url('4.jpg')";}
         }
 
-        function tampilkanTulisan(){
-            var t1 = "Selamat Datang";
-            var t2 = "<?php echo $data['tulisan'] ?>"; 
-            var t3 = "Di JTK";
-            
-            document.getElementById("teks").innerHTML = t1 + "\n" + t2 + "\n" + t3;
-        }
 	</script>
 	<style>
 
@@ -101,6 +87,13 @@ side bar {
     
 }
 
+span{
+	padding: 0px;
+    padding-top:0px;
+    font-size:80px;
+    color:white;
+}
+
 p{
     padding: 25px;
     padding-top:450px;
@@ -134,16 +127,13 @@ section:after {
             <div id="clock"style="color:white;"></div>
             </bar>
         </side>
-        <span id="teks" style="p"></span>
-        <!-- <p>
-        ❤ Selamat Datang ❤
+        <p>
+        Selamat Datang
         <br>
-        <?php
-            // echo "❤ $data[tulisan] ❤";
-        ?>
+        <span id="auto"></span>
         <br>
-        ❤ Di JTK ❤
-        </p> -->
+        di JTK
+        </p>
     </section>
  </div>
 	
